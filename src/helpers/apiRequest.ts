@@ -4,7 +4,7 @@ import { Platform } from 'react-native'
 
 export default async (request: AxiosRequestConfig) => {
     request.method = request.method || 'get'
-    const URL = '' //TODO: Replace with url
+    const URL = 'http://localhost:8000' //TODO: Replace with url
     request.url = `${URL}/${request.url}`
     if (Platform.OS === 'android') {
         request.data = request.data || {}

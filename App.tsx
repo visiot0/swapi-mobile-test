@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { enableFreeze } from 'react-native-screens'
-import Home from '@screens/Home'
 import ThemeProvider from 'theme/ThemeContext'
 // This is for optimization, every screen that's not focused has a never ending promise
 // that stalls it, which means that whatever the app would like to rerender in the background
 // would now be unable to be rerendered. Comment it if it causes any issues.
 enableFreeze(true)
+
+import Navigator from './src/navigation'
 
 const App = () => {
     const [initialTheme] = useState<string | null>(null)
@@ -20,7 +21,7 @@ const App = () => {
     }, [])
     return (
         <ThemeProvider initialTheme={initialTheme || undefined}>
-            <Home />
+            <Navigator />
         </ThemeProvider>
     )
 }
